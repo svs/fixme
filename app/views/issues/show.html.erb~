@@ -1,0 +1,39 @@
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %>
+<%= javascript_include_tag "jquery.form.js" %>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#edit_issue_<%= @issue.id %>').ajaxForm(function() {
+      $('#issue_desc').show(); 
+      $('#edit_issue_<%= @issue.id %>').hide();
+    });
+  });
+</script>
+<div id="running-board">
+<h1><%= @issue.title %></h1>
+by <%= @issue.user.email %>
+<%- if @issue.user == current_user %>
+  <%= link_to "[Edit]", edit_issue_path(@issue.id) %>
+<% end %>
+</div>
+<div id="main-container">
+<div id="pics" style="height: 200px;">
+  <%- @issue.pics.each do |p| %>
+    <div style="float:left; background: #f88; padding: 5px;">
+      <%= image_tag p.pic.url(:thumb) %>
+      <p style="text-align: center; margin: 2px; font-family: Arial;"><%= p.caption %></p>
+    </div>
+  <% end %>
+</div>
+<div id="desc">
+  <h2>Description</h2>
+  <a href="#" onclick = "javascript: $('#issue_desc').hide();$('#edit_issue_<%= @issue.id %>').show();">Edit</a>
+  <div id="issue_desc">
+    <%= @issue.description %>
+  </div>
+  <%= form_for @issue, :remote => true, :action => {:controller => "issues", :action => "update_description"}, :html => {:style => "display:none"} do |f|%>
+    <%= f.text_area :description%>
+    <button type="submit">Update Description</button>
+  <% end %>
+</div>
+
+<h2>Location</h2>

@@ -1,0 +1,87 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:regular,bold&subset=latin);
+body {
+  font-family: Arial;
+}
+
+h1 {
+  font-family: 'Arvo', arial, serif
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: #610964;
+}
+#container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 1000px;
+  padding: 0px;
+  font-size: 20px;
+}
+
+
+#header {
+  padding-left: 10px;
+  height: 140px;
+}
+#header h1{
+  font-size: 3em;
+  float: left;
+}
+ul.hmenu {
+  list-style: none;	
+  margin: 0 0 2em;
+  position: absolute;
+  top: 60px;
+  right: 500px;
+}
+
+ul.hmenu a {
+  color: #2C0B02;
+}
+ul.hmenu li {
+  display: inline;  
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+
+label{
+    float: left;
+    width: 200px;
+}
+
+input, textarea{
+width: 180px;
+margin-bottom: 5px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+padding: 5px;
+font-size: 1.1em;
+}
+
+textarea{
+width: 250px;
+height: 150px;
+}
+
+.boxes{
+width: 1em;
+}
+
+input[type="submit"]{
+margin-left: 300px;
+margin-top: 5px;
+width: 190px;
+}
+
+#results {
+  width: 300px;
+}
+

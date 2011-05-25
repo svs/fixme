@@ -1,0 +1,30 @@
+  <div id="big-grey">
+    <div style="margin-right: 17%"><h1>What're you waiting for?</h1><h2>Fix something today!</h2></p>
+Fix-me.in lets you easily describe and publish issues that matter to you and find other people who're interested in fixing them.<br><br>
+<%= link_to "Browse issues", :issues, :class => "button" %> <strong>or</strong>
+<%= link_to "Start a new issue", :new_issue, :class => "button" %>
+  </div>
+</div>
+<div id="main-container">
+<p>
+<% if Issue.all.count == 0 %>
+  <h2>No issues yet!</h2>
+<% else %>
+  <h2>Latest issues</h2>
+  <div id="issues" style="width: 100%; height: 220px; clear: right;">
+    <ul class="issues">
+      <%- Issue.all[0..4].each do |i| %>
+	<li class="issue-link">
+	  <div class="issue-pic">
+	    <%= image_tag i.pics[0].pic.url(:thumb), :style => "width: 200px; height: 200px;" %>
+	  </div>
+	  <%= link_to i.title, show_issue_path(i.slug) %><br>
+	  by <%= link_to i.user.email, user_path(i.user) %><br>
+	  <%= i.description %>
+	  
+	</li>
+      <% end %>
+    </ul>
+<% end %>
+</p>
+</div>

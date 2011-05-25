@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+
+<ul>
+  <%- @user.issues.each do |i| %>
+    <li><%= link_to i.title, {:action => "show", :controller => "issues", :id => i.slug} %></li>
+  <% end %>
+</ul>
